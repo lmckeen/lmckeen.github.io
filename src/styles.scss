@@ -1,0 +1,171 @@
+@keyframes hoverAnimation {
+  from {opacity: 1} 
+  to {opacity: 0.6}
+}
+
+@keyframes fullWidth {
+  from {width: 0%} 
+  to {width: 100%}
+}
+
+@keyframes slideleft {
+  from {transform: translateX(0%)} 
+  to {transform: translateX(-150%)}
+}
+
+@keyframes slideright {
+  from {transform: translateX(0%)} 
+  to {transform: translateX(150%)}
+}
+
+@keyframes slidedown {
+  from {transform: translateY(0%)} 
+  to {transform: translateY(250%)}
+}
+
+@keyframes slideup {
+  from {transform: translateY(0%)}
+  to {transform: translateY(-150%)}
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: Verdana;
+  overscroll-behavior-y: none;
+  height: 100%;
+  position: fixed;
+}
+
+.page {
+  z-index: var(--layer);
+  display: flex;
+  height: 100%;
+  position: absolute;
+  > :nth-child(1) {
+    border-right: 2px solid #444;
+  }
+  > :nth-child(2) {
+    border-left: 2px solid #444;
+  }
+  &.scroll { 
+    animation: slideup 0.5s ease-in-out forwards;
+    > :nth-child(2) {
+      animation: slidedown 0.5s ease-in-out forwards;
+    }
+    .contents {
+      opacity: 0;
+    }
+  }
+  &.reveal {
+    > :nth-child(1) {
+      animation: slideleft 0.5s ease-in-out forwards;
+    }
+    > :nth-child(2) {
+      animation: slideright 0.5s ease-in-out forwards;
+    }
+    .contents {
+      overflow-y: auto;
+    }
+  }
+  .contents {
+    z-index: -1;
+    position: absolute;
+    background-color: white;
+    color: #444;
+    height: 100%;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: auto;
+  }
+}
+
+.back-button {
+  background: no-repeat center center url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5MiA0OTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5MiA0OTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNNDY0LjM0NCwyMDcuNDE4bDAuNzY4LDAuMTY4SDEzNS44ODhsMTAzLjQ5Ni0xMDMuNzI0YzUuMDY4LTUuMDY0LDcuODQ4LTExLjkyNCw3Ljg0OC0xOS4xMjQNCgkJCWMwLTcuMi0yLjc4LTE0LjAxMi03Ljg0OC0xOS4wODhMMjIzLjI4LDQ5LjUzOGMtNS4wNjQtNS4wNjQtMTEuODEyLTcuODY0LTE5LjAwOC03Ljg2NGMtNy4yLDAtMTMuOTUyLDIuNzgtMTkuMDE2LDcuODQ0DQoJCQlMNy44NDQsMjI2LjkxNEMyLjc2LDIzMS45OTgtMC4wMiwyMzguNzcsMCwyNDUuOTc0Yy0wLjAyLDcuMjQ0LDIuNzYsMTQuMDIsNy44NDQsMTkuMDk2bDE3Ny40MTIsMTc3LjQxMg0KCQkJYzUuMDY0LDUuMDYsMTEuODEyLDcuODQ0LDE5LjAxNiw3Ljg0NGM3LjE5NiwwLDEzLjk0NC0yLjc4OCwxOS4wMDgtNy44NDRsMTYuMTA0LTE2LjExMmM1LjA2OC01LjA1Niw3Ljg0OC0xMS44MDgsNy44NDgtMTkuMDA4DQoJCQljMC03LjE5Ni0yLjc4LTEzLjU5Mi03Ljg0OC0xOC42NTJMMTM0LjcyLDI4NC40MDZoMzI5Ljk5MmMxNC44MjgsMCwyNy4yODgtMTIuNzgsMjcuMjg4LTI3LjZ2LTIyLjc4OA0KCQkJQzQ5MiwyMTkuMTk4LDQ3OS4xNzIsMjA3LjQxOCw0NjQuMzQ0LDIwNy40MTh6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=);
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem 0rem;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  &:hover, &:focus {
+    animation: hoverAnimation 0.25s ease-in-out forwards;
+  }
+}
+
+.name, .image {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color);
+  box-sizing: border-box;
+  &-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+.name {
+  &-contents {
+    color: var(--font-color);
+    font-size: 5vw;
+    text-decoration: none;
+    position: relative;
+    &:after {
+      content: '';
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: var(--font-color);
+    }
+    &:hover, &:focus {
+      &:after {
+        animation: fullWidth 0.25s ease-in-out forwards;
+      }
+    }
+  }
+}
+
+.image {
+  &-contents {
+    padding-bottom: var(--padding, 0%);
+    &:hover, &:focus {
+      animation: hoverAnimation 0.25s ease-in-out forwards;
+    }
+    img {
+      width: var(--size, 25vw);
+    }
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .image {
+    &-contents {
+      max-width: 350px;
+    }
+  }
+  .name {
+    &-contents {
+      font-size: 5rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .back-button {
+    height: 3rem;
+    width: calc(60vw - 50px);
+    margin: auto auto 1rem;
+    border: 1px solid black;
+    background-size: 100% 75%;
+    box-shadow: 2px 3px #ddd;
+  }
+}
