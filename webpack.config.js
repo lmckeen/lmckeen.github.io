@@ -21,12 +21,21 @@ module.exports = function (env, argv) {
     },
     module: {
       rules: [{
-        test: /(\.json|sw\.js)$/,
+        test: /(\.json)$/,
         type: 'javascript/auto',
         use: [{
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
+          }
+        }]
+      }, {
+        test: /(sw\.js)$/,
+        type: 'javascript/auto',
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '../[name].[ext]',
           }
         }]
       }, {
@@ -53,6 +62,7 @@ module.exports = function (env, argv) {
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: './src/index.html',
+        filename: '../index.html',
         minify: {
           collapseWhitespace: isProd,
           removeComments: isProd,

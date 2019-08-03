@@ -1,10 +1,10 @@
 const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
-  'index.html',
-  'main.css',
-  'index.js',
-  'manifest.json'
+  './index.html',
+  './dist/main.css',
+  './dist/index.js',
+  './dist/manifest.json'
 ];
 
 self.addEventListener('install', event => {
