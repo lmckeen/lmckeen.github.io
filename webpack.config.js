@@ -19,6 +19,7 @@ module.exports = function (env, argv) {
       filename: 'index.js',
       path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'none',
     module: {
       rules: [{
         test: /(\.json)$/,
