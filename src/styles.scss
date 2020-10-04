@@ -27,9 +27,6 @@
   from {transform: translateY(0%)}
   to {transform: translateY(-150%)}
 }
-* {
-  box-sizing: border-box;
-}
 
 html, body {
   margin: 0;
@@ -167,5 +164,6 @@ html, body {
     border: 1px solid black;
     background-size: 100% 75%;
     box-shadow: 2px 3px #ddd;
+    box-sizing: border-box;
   }
 }
