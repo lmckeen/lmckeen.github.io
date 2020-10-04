@@ -2,7 +2,7 @@
   "name": "portfolio",
   "scripts": {
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "rm -rf ./dist; webpack --mode production"
   },
   "devDependencies": {
     "css-loader": "^3.1.0",
